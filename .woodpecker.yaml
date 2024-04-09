@@ -1,0 +1,14 @@
+steps:
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      username:
+        from_secret: dockerhub_username
+      password:
+        from_secret: dockerhub_password
+      repo: coralhl/shhh-bot
+      platforms:
+        - linux/amd64
+        - linux/arm64
+      tags:
+        - latest

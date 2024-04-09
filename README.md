@@ -45,14 +45,14 @@ In the Dockerfile, you only need to change this line
         container_name: shhhbot
         hostname: shhhbot
         restart: unless-stopped
-        image: ghcr.io/tonym128/shhh-bot:v1.0.0
+        image: coralhl/shhh-bot
         environment:
         - SHHH_API_KEY={BOT_TOKEN}
         - SHHH_MY_CHAT_ID={YOUR_CHAT_ID}
 
 ## Build and run Docker image
 
-    git clone https://github.com/tonym128/shhh-bot.git
+    git clone https://github.com/coralhl/shhh-bot.git
     cd shhh-bot
     docker build -t shhhbot:1.0.
     docker run --env SHHH_API_KEY={BOT_TOKEN} --env SHHH_MY_CHAT_ID={YOUR_CHAT_ID} --name shhhbot -i shhhbot:1.0
