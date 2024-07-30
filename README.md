@@ -54,22 +54,22 @@ In the Dockerfile, you only need to change this line
 
     git clone https://github.com/coralhl/shhh-bot.git
     cd shhh-bot
-    docker build -t shhhbot:1.0.
-    docker run --env SHHH_API_KEY={BOT_TOKEN} --env SHHH_MY_CHAT_ID={YOUR_CHAT_ID} --name shhhbot -i shhhbot:1.0
+    docker build -t shhh-bot:latest .
+    docker run --env SHHH_API_KEY={BOT_TOKEN} --env SHHH_MY_CHAT_ID={YOUR_CHAT_ID} --name shhhbot -i shhh-bot:latest
 
 Values should look something like this:
 - SHHH_API_KEY=1234567890:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 - SHHH_MY_CHAT_ID=12345678
 
 ### Export built image to tar and upload directly to your server
-- ```docker save shhhbot:1.0 > shhhbot.tar```
-- Import image in Portainer by going to images and importing a new image from a tar file and upload with a name and tag eg shhhbot:1.0
+- ```docker save shhh-bot:latest > shhh-bot.tar```
+- Import image in Portainer by going to images and importing a new image from a tar file and upload with a name and tag eg shhh-bot:latest
 
 ## Build and push to DockerHub
 
-    git clone https://github.com/tonym128/shhh-bot.git
+    git clone https://github.com/coral/shhh-bot.git
     cd shhh-bot
     docker buildx create --name builder
     docker buildx use builder
     docker buildx inspect --bootstrap
-    docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t {YOUR_USERNAME}/shhhbot:1.0 --push .
+    docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t {YOUR_USERNAME}/shhh-bot:latest --push .
